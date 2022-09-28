@@ -1,0 +1,33 @@
+
+program: main.py
+method: grid
+metric:
+  goal: maximize
+  name: test_acc
+parameters:
+  dataset:
+    values: ["MNIST", 'fashion', 'KMNIST']
+  num_tasks:
+    values: [500]
+  nb_epochs:
+    values: [1]
+  classes_per_task:
+    values: [2]
+  seed:
+    values: [0, 1, 2]
+  lr:
+    values: [0.01]
+  momentum:
+    values: [0.0]
+  optim:
+    values: ["SGD", "Adam"]
+  head:
+    values: ["linear"]
+  masking:
+    values: ["None", "group"]
+  class_acc:
+    values: ["True"]
+command:
+  - python
+  - ${program}
+  - ${args}

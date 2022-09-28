@@ -1,0 +1,33 @@
+program: main.py
+method: grid
+metric:
+  goal: maximize
+  name: test_acc
+parameters:
+  dataset:
+    values: ["CIFAR100"]
+  num_tasks:
+    values: [1000]
+  num_classes:
+    values: [100]
+  nb_epochs:
+    values: [1]
+  classes_per_task:
+    values: [2,3,5,10,20]
+  seed:
+    values: [0,1,2,3,4]
+  lr:
+    values: [0.01]
+  momentum:
+    values: [ 0.0 ]
+  optim:
+    values: ["SGD"]
+  head:
+    values: ["linear"]
+  masking:
+    values: ["group"]
+
+command:
+  - python
+  - ${program}
+  - ${args}
